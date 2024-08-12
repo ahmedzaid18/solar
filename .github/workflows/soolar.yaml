@@ -18,7 +18,7 @@ jobs:
   first_job:
         runs-on: ubuntu-latest
         steps:
-        - name: checkout repo
+        - name: checkout repoc
           uses: actions/checkout@v4
         - name: SETUP NODE
           uses: actions/setup-node@v3
