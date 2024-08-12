@@ -20,9 +20,7 @@ jobs:
          matrix:
           nodejs_version: [18,19]
           operating_system: [ubuntu-latest,macos-latest]
-          exclude:
-             nodejs_version: 18
-             operating_system: macos-latest
+
        runs-on: ${{matrix.operating_system}}
        steps:
         - name: checkout repoc
