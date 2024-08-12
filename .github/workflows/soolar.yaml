@@ -45,4 +45,4 @@ jobs:
            name: test-result
            path: test-results.xml
         - name: cover
-          run: whoami
+          run: npm run coverage
