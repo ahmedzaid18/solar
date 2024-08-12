@@ -1,0 +1,38 @@
+
+name: first_work
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            -main
+            -'feature/*'
+
+env:
+
+   MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData' 
+   MONGO_USERNAME: 'superuser' 
+   MONGO_PASSWORD: 'SuperPassword'
+
+jobs:
+
+  first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: checkout repo
+          uses: actions/checkout@v4
+        - name: SETUP NODE
+          uses: actions/setup-node@v3
+          with:
+           node-version:18
+
+        - name: install depend
+          run:
+            | 
+             npm install
+             npm test
+
+        - name: upload arti
+          uses: actions/upload-artifact@v3
+          with:
+           name: test-result
+           path: test-results.xml
