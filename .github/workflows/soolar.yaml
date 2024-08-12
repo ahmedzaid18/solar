@@ -17,14 +17,14 @@ jobs:
 
   first_job:
        strategy:
-        matrix:
-         nodejs_version: [18,19]
-         operating_system: [ubuntu-latest,macos-latest]
-         exclude:
-            -nodejs_version: 18
+         matrix:
+          nodejs_version: [18,19]
+          operating_system: [ubuntu-latest,macos-latest]
+          exclude:
+             nodejs_version: 18
              operating_system: macos-latest
        runs-on: ${{matrix.operating_system}}
-        steps:
+       steps:
         - name: checkout repoc
           uses: actions/checkout@v4
         - name: SETUP NODE
@@ -44,4 +44,4 @@ jobs:
            name: test-result
            path: test-results.xml
         - name: cover
-          run: 
+          run: whoami
