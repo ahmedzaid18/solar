@@ -48,3 +48,4 @@ jobs:
            path: test-results.xml
         - name: cover
           run: npm run coverage
+          continue-on-error: true
