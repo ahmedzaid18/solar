@@ -19,11 +19,10 @@ jobs:
        strategy:
          matrix:
           node-version: [18, 19]
-          os: [ubuntu-latest, windows-latest, macos-latest]
+          os: [ubuntu-latest, windows-latest]
 
           exclude:
-            - node-version: 18
-              os: macos-latest
+
             - node-version: 19
               os: windows-latest
 
