@@ -58,5 +58,5 @@ jobs:
       uses: docker/login-action@v3
       with:
             username: ${{ vars.dockusr }}
-          password: ${{ secrets.dockpass }}
+        password: ${{ secrets.dockpass }}
 
