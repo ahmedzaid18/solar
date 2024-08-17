@@ -63,6 +63,6 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-            username: ${{ vars.dockusr }}
-            password: ${{ secrets.dockpass }}
+            username: ${{ vars.DOCKUSR }}
+            password: ${{ secrets.DOCKPASS }}
 
