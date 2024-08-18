@@ -67,21 +67,21 @@ jobs:
       - name:  Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-         push: true
+         push: false
          tags: ${{ vars.DOCKUSR }}/solar:990  # Replace with your repository name
          context: . 
       - name: docker test
         run:
            |
+           docker images
            docker run --name myapp -p 3000:3000 -d \
-            -e     MONGO_URI: $MONGO_URI \
-            -e     MONGO_USERNAME: $MONGO_USERNAME \
-            -e     MONGO_PASSWORD: $MONGO_PASSWORD  \
+
              ${{ vars.DOCKUSR }}/solar:990
            echo test
+           docker ps -a
            docker inspect | grep IP
            echo finish
-           wget -q -o -127.0.0.1:3000\live | grep live
-           
+           wget -q -o -127.0.0.1:3000/live | grep live
+
 
           
