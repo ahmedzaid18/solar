@@ -34,8 +34,16 @@ jobs:
           uses: actions/setup-node@v3
           with:
            node-version: 18
-
+        - name: cache
+          uses: actions/cache@v3
+          id: cach_step
+          with:
+             path: ~/.npm
+             key: ${{ MONGO_PASSWORD }}-node-${{ hashFiles('**/package-lock.json') }}
+             restore-keys: |
+               ${{ MONGO_PASSWORD }}-node-
         - name: install dependeb
+          if: steps.cach_step.outputs.cache-hit != 'true'
           run:
             | 
              npm install
