@@ -39,9 +39,9 @@ jobs:
           id: cach_step
           with:
             path: ~/.npm
-            key: ${{ MONGO_PASSWORD }}-node-${{ hashFiles('**/package-lock.json') }}
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
             restore-keys: |
-                ${{ MONGO_PASSWORD }}-node-
+                ${{ runner.os }}-node-
         - name: install dependeb
           if: steps.cach_step.outputs.cache-hit != 'true'
           run:
