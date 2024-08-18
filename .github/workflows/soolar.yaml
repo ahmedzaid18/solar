@@ -74,12 +74,14 @@ jobs:
         run:
            |
            docker run --name myapp -p 3000:3000 -d \
-            -e     MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData' \
-            -e     MONGO_USERNAME: 'superuser' \
-            -e     MONGO_PASSWORD: 'SuperPassword'  \
+            -e     MONGO_URI: $MONGO_URI \
+            -e     MONGO_USERNAME: $MONGO_USERNAME \
+            -e     MONGO_PASSWORD: $MONGO_PASSWORD  \
              ${{ vars.DOCKUSR }}/solar:990
            echo test
            docker inspect | grep IP
            echo finish
+           wget -q -o -127.0.0.1:3000\live | grep live
+           
 
           
