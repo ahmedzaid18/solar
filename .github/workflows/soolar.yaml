@@ -84,6 +84,19 @@ jobs:
            docker inspect mine | grep IP
            echo finish
            echo done
+  ghcr: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: ghcr
+        uses: docker/login-action@v2
+        with:
+         registry: ghcr.io
+         username: ${{ vars.GITUSR }}
+         password: ${{ secrets.GHCRPASS }}
+
 
 
           
