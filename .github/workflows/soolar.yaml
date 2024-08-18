@@ -70,4 +70,16 @@ jobs:
          push: true
          tags: ${{ vars.DOCKUSR }}/solar:990  # Replace with your repository name
          context: . 
-     
+      - name: docker test
+        run:
+           |
+           docker run --name myapp -p 3000:3000 -d \
+            -e     MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData' \
+            -e     MONGO_USERNAME: 'superuser' \
+            -e     MONGO_PASSWORD: 'SuperPassword'  \
+             ${{ vars.DOCKUSR }}/solar:990
+           echo test
+           docker inspect | grep IP
+           echo finish
+
+          
