@@ -67,7 +67,7 @@ jobs:
       - name:  Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-         push: false
-         tags: ${{ vars.DOCKUSR }}/solar:latest  # Replace with your repository name
+         push: true
+         tags: ${{ vars.DOCKUSR }}/solar:990  # Replace with your repository name
          context: . 
      
