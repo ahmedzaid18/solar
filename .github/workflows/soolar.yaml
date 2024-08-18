@@ -84,6 +84,7 @@ jobs:
            docker inspect mine | grep IP
            echo finish
            wget -q -o - 127.0.0.1:3000/live | grep live
+           echo done
 
 
           
