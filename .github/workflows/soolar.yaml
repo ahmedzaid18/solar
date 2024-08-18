@@ -95,14 +95,14 @@ jobs:
         with:
          registry: ghcr.io
          username: ${{ vars.GITUSR }}
-         password: ${{ secrets.GHCRPASS }}
+         password: ${{ secrets.GHCRPASS2 }}
       - name: Build and push   
 
         uses: docker/build-push-action@v3
         with:
            context: .
            push: true
-           tags:  ${{ vars.DOCKUSR }}/solar:990
+           tags:  ${{ vars.GITUSR }}/solar:990
 
 
 
