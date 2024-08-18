@@ -65,10 +65,9 @@ jobs:
             username: ${{ vars.DOCKUSR }}
             password: ${{ secrets.DOCKPASS }}
       - name:  Build and push Docker image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v5
         with:
          push: false
-         context: .
-         tags: ${{ vars.DOCKERUSR }}/solar:latest  # Replace with your repository name
-         
+         tags: ${{ vars.DOCKUSR }}/solar:latest  # Replace with your repository name
+         context: . 
      
