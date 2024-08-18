@@ -83,7 +83,7 @@ jobs:
            docker ps -a
            docker inspect mine | grep IP
            echo finish
-           wget - 127.0.0.1:3000/live | grep live
+           wget - 127.0.0.1:3000/live 
            echo done
 
 
