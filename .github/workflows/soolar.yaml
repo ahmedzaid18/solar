@@ -95,7 +95,7 @@ jobs:
         with:
          registry: ghcr.io
          username: ${{ vars.GITUSR }}
-         password: ${{ secrets.GHCRPASS2 }}
+         password: ${{ secrets.GHCRPASS3 }}
       - name: Build and push   
 
         uses: docker/build-push-action@v3
