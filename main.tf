@@ -3,7 +3,7 @@ provider "aws" {
   access_key = "AKIAYLZZKESD6PAT26ED"
   secret_key = "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"
 }
-resource "aws_security_group" "HTTPSG" {
+resource "aws_security_group" "HTTPSG_22" {
   
 
   ingress {
@@ -54,13 +54,13 @@ resource "aws_security_group" "HTTPSG" {
   }
    }
 
-resource "aws_instance" "monit_instance" {
+resource "aws_instance" "monit_instance_test" {
 
   ami                         = "ami-005fc0f236362e99f"
 
   instance_type               = "t2.micro"
   
-  vpc_security_group_ids      = [aws_security_group.HTTPSG.id] 
+  vpc_security_group_ids      = [aws_security_group.HTTPSG_22.id] 
   
 
 
@@ -70,5 +70,5 @@ resource "aws_instance" "monit_instance" {
 
 
  output "instance_ip" {
-   value = aws_instance.monit_instance.public_ip
+   value = aws_instance.monit_instance_test.public_ip
 }
